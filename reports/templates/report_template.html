@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>AKRDFAS Investigation Report</title>
+    <style>
+        {{CSS_STYLES}}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- ========================= -->
+        <!-- Header -->
+        <!-- ========================= -->
+
+        <div class="header">
+            <div class="title">
+                <h1>AKRDFAS</h1>
+                <h2>
+                    Advanced Linux Kernel Rootkit Detection<br>
+                    and Forensic Analysis System
+                </h2>
+            </div>
+            <div class="report-title">
+                <h3>Digital Forensic<br>Investigation Report</h3>
+            </div>
+        </div>
+
+        <!-- ========================= -->
+        <!-- Executive Summary -->
+        <!-- ========================= -->
+
+        <div class="grid">
+            <div class="card stat">
+                <div class="stat-title">CASE ID</div>
+                <div class="stat-value">{{CASE_ID}}</div>
+            </div>
+            <div class="card stat">
+                <div class="stat-title">GENERATED</div>
+                <div class="stat-value">{{DATE}}</div>
+            </div>
+            <div class="card stat">
+                <div class="stat-title">THREAT SCORE</div>
+                <div class="stat-value">{{THREAT_SCORE}} /100</div>
+            </div>
+            <div class="card stat">
+                <div class="stat-title">THREAT LEVEL</div>
+                <br>
+                <div class="badge {{LEVEL_CLASS}}">
+                    {{THREAT_LEVEL}}
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================= -->
+        <!-- System Information -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>System Information</h2>
+            <table>
+                <tr>
+                    <th>Hostname</th>
+                    <td>{{HOSTNAME}}</td>
+                </tr>
+                <tr>
+                    <th>Operating System</th>
+                    <td>{{SYSTEM}}</td>
+                </tr>
+                <tr>
+                    <th>Kernel Release</th>
+                    <td>{{KERNEL}}</td>
+                </tr>
+                <tr>
+                    <th>Architecture</th>
+                    <td>{{ARCH}}</td>
+                </tr>
+                <tr>
+                    <th>Uptime (Seconds)</th>
+                    <td>{{UPTIME}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ========================= -->
+        <!-- Detection Summary -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Detection Summary</h2>
+            <table>
+                <tr>
+                    <th>Detector</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Kernel Information</td>
+                    <td>✅ Completed</td>
+                </tr>
+                <tr>
+                    <td>Kernel Baseline</td>
+                    <td>✅ Completed</td>
+                </tr>
+                <tr>
+                    <td>Kernel Module Analysis</td>
+                    <td>✅ Completed</td>
+                </tr>
+                <tr>
+                    <td>Hidden Module Detection</td>
+                    <td>✅ Completed</td>
+                </tr>
+                <tr>
+                    <td>Hidden Process Detection</td>
+                    <td>✅ Completed</td>
+                </tr>
+                <tr>
+                    <td>Kernel Integrity Check</td>
+                    <td>✅ Completed</td>
+                </tr>
+                <tr>
+                    <td>Network Analysis</td>
+                    <td>✅ Completed</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ========================= -->
+        <!-- Threat Statistics -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Threat Statistics</h2>
+            <table>
+                <tr>
+                    <th>Total Modules</th>
+                    <th>High</th>
+                    <th>Medium</th>
+                    <th>Low</th>
+                    <th>Hidden Modules</th>
+                    <th>Hidden Processes</th>
+                    <th>Listening Ports</th>
+                </tr>
+                <tr>
+                    <td>{{TOTAL_MODULES}}</td>
+                    <td>{{HIGH_MODULES}}</td>
+                    <td>{{MEDIUM_MODULES}}</td>
+                    <td>{{LOW_MODULES}}</td>
+                    <td>{{HIDDEN_MODULES}}</td>
+                    <td>{{HIDDEN_PROCESSES}}</td>
+                    <td>{{LISTENING_PORTS}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Kernel Module Analysis Summary                   -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Kernel Module Analysis Summary</h2>
+            {{MODULE_SUMMARY}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Kernel Module Forensic Evidence                 -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Kernel Module Forensic Evidence</h2>
+            {{MODULE_EVIDENCE}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Hidden Kernel Module Analysis                   -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Hidden Kernel Module Analysis</h2>
+            {{HIDDEN_MODULE_SUMMARY}}
+            {{HIDDEN_MODULE_TABLE}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Hidden Process Analysis                         -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Hidden Process Analysis</h2>
+            {{HIDDEN_PROCESS_SUMMARY}}
+            {{HIDDEN_PROCESS_TABLE}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Kernel Hook Analysis                            -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Kernel Hook Analysis</h2>
+            {{HOOK_SUMMARY}}
+            {{HOOK_TABLE}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Network Connection Analysis                     -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Network Connection Analysis</h2>
+            {{NETWORK_SUMMARY}}
+            {{NETWORK_TABLE}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Kernel Module Analysis                          -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Kernel Module Analysis</h2>
+            {{MODULE_SUMMARY}}
+            {{MODULE_TABLE}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Kernel Log Analysis                             -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Kernel Log Analysis</h2>
+            {{KERNEL_LOG_SUMMARY}}
+            {{KERNEL_LOG_TABLE}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Network Analysis                                -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Network Analysis</h2>
+            {{NETWORK_SUMMARY}}
+            {{NETWORK_TABLE}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Advanced Investigation Summary -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Advanced Investigation Summary</h2>
+            <table>
+                <tr>
+                    <th>Kernel Errors</th>
+                    <th>Kernel Panics</th>
+                    <th>Kernel Hooks</th>
+                    <th>Persistence</th>
+                    <th>MITRE Techniques</th>
+                    <th>IOC Matches</th>
+                    <th>Correlation Score</th>
+                </tr>
+                <tr>
+                    <td>{{KERNEL_ERRORS}}</td>
+                    <td>{{KERNEL_PANICS}}</td>
+                    <td>{{KERNEL_HOOKS}}</td>
+                    <td>{{PERSISTENCE}}</td>
+                    <td>{{MITRE_COUNT}}</td>
+                    <td>{{IOC_COUNT}}</td>
+                    <td>{{CORRELATION_SCORE}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Executive Investigation Summary                 -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Executive Investigation Summary</h2>
+            {{EXECUTIVE_SUMMARY}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Threat Score Breakdown -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Threat Score Breakdown</h2>
+            {{THREAT_BREAKDOWN}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Trusted Baseline Comparison -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Trusted Baseline Comparison</h2>
+            <table>
+                <tr>
+                    <th>Added Modules</th>
+                    <th>Removed Modules</th>
+                    <th>Added Ports</th>
+                    <th>Removed Ports</th>
+                </tr>
+                <tr>
+                    <td>{{ADDED_MODULES}}</td>
+                    <td>{{REMOVED_MODULES}}</td>
+                    <td>{{ADDED_PORTS}}</td>
+                    <td>{{REMOVED_PORTS}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ========================= -->
+        <!-- MITRE ATT&CK Mapping -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>MITRE ATT&CK Mapping</h2>
+            {{MITRE_TABLE}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Threat Correlation -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Threat Correlation</h2>
+            {{CORRELATION_TABLE}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Indicators of Compromise -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Indicators of Compromise (IOC)</h2>
+            {{IOC_TABLE}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Findings -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Threat Findings</h2>
+            {{REASONS}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Priority Investigation Actions                  -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Priority Investigation Actions</h2>
+            {{INVESTIGATION_ACTIONS}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Recommendations -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Recommendations</h2>
+            {{RECOMMENDATIONS}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Evidence Collection Statistics                  -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Evidence Collection Statistics</h2>
+            {{EVIDENCE_STATS}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Evidence Integrity -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Evidence Integrity Verification</h2>
+            {{INTEGRITY_TABLE}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Evidence Directory                              -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Evidence Directory</h2>
+            {{EVIDENCE_DIRECTORY}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Evidence Inventory -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Evidence Inventory</h2>
+            {{EVIDENCE_TABLE}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Investigation Timeline -->
+        <!-- ========================= -->
+
+        <div class="card">
+            <h2>Investigation Timeline</h2>
+            {{TIMELINE_TABLE}}
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NEW SECTION: Case Conclusion                                 -->
+        <!-- ============================================================ -->
+        <div class="card">
+            <h2>Case Conclusion</h2>
+            {{CASE_CONCLUSION}}
+        </div>
+
+        <!-- ========================= -->
+        <!-- Footer -->
+        <!-- ========================= -->
+
+        <div class="footer">
+            <p><strong>AKRDFAS v1.0</strong></p>
+            <p>Advanced Linux Kernel Rootkit Detection and Forensic Analysis System</p>
+            <p>Automated Digital Forensic Investigation Report</p>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#1E1E1E;
+    color:#EAEAEA;
+    font-family:"Segoe UI",sans-serif;
+    padding:40px;
+}
+
+.container{
+    background:#1E1E1E;
+    max-width:1400px;
+    margin:auto;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    border-bottom:2px solid #6CB6FF;
+    padding-bottom:20px;
+}
+
+h1,h2,h3{
+    color:#6CB6FF;
+}
+
+.title h1{
+    color:#4ea1ff;
+    font-size:42px;
+}
+
+.title h2{
+    color:#d0d7de;
+    font-weight:400;
+    font-size:20px;
+}
+
+.report-title{
+    text-align:right;
+}
+
+.report-title h3{
+    color:#f5f7fa;
+    font-size:26px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.card{
+    background:#252526;
+    border:1px solid #3C3C3C;
+    border-radius:10px;
+    padding:22px;
+    margin-bottom:25px;
+    box-shadow:0 0 15px rgba(0,0,0,.25);
+}
+
+.card h2{
+    color:#6bb8ff;
+    margin-bottom:20px;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat-title{
+    color:#9aa7b6;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.stat-value{
+    font-size:30px;
+    color:#4ea1ff;
+    font-weight:bold;
+}
+
+table{
+    background:#252526;
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#2D2D30;
+    color:#6CB6FF;
+}
+
+td{
+    color:#EAEAEA;
+}
+
+td,th{
+    padding:14px;
+    border:1px solid #3C3C3C;
+}
+
+tr:nth-child(even){
+    background:#252526;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.low{
+    background:#173d25;
+    color:#36d399;
+}
+
+.medium{
+    background:#463510;
+    color:#fbbf24;
+}
+
+.high{
+    background:#4d1d1d;
+    color:#ef4444;
+}
+
+.critical{
+    background:#7f1d1d;
+    color:white;
+}
+
+
+ul{
+    margin-left:25px;
+}
+
+li{
+    margin:10px 0;
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#9E9E9E;
+    border-top:1px solid #3C3C3C;
+    padding-top:20px;
+}

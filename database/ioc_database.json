@@ -1,0 +1,41 @@
+{
+    "modules": [
+        "diamorphine",
+        "reptile",
+        "suterusu",
+        "adore",
+        "adore-ng",
+        "knark",
+        "enyelkm",
+        "fuuld",
+        "phalanx",
+        "synapsis",
+        "override",
+        "rootfoo"
+    ],
+
+    "processes": [
+        "diamorphine",
+        "reptile",
+        "kworker_hidden",
+        "hidden_proc",
+        "rkhelper",
+        "rkdaemon"
+    ],
+
+    "files": [
+        "/dev/.rk",
+        "/etc/ld.so.preload",
+        "/lib/modules/override.ko",
+        "/tmp/.hidden",
+        "/dev/shm/.rk"
+    ],
+
+    "ports": [
+        31337,
+        4444,
+        5555,
+        6666,
+        1337
+    ]
+}

@@ -1,0 +1,55 @@
+body{
+
+    background:#0B0F14;
+
+    font-family:Segoe UI,Arial,sans-serif;
+
+    margin:0;
+
+    color:#EAEAEA;
+
+}
+
+a:hover{
+
+    background:#00E5FF20;
+
+    color:#00E5FF !important;
+
+    transition:.25s;
+
+}
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#151A21;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#00E5FF;
+
+    border-radius:20px;
+
+}
+
+.card{
+
+    background:#151A21;
+
+    border:1px solid #252B36;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    color:white;
+
+}

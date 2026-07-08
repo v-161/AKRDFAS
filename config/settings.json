@@ -1,0 +1,28 @@
+{
+    "project": {
+        "name": "Advanced Linux Kernel Rootkit Detection and Forensic Analysis System",
+        "version": "1.0.0"
+    },
+
+    "scan": {
+        "deep_scan": true,
+        "collect_hashes": true,
+        "collect_network": true,
+        "collect_kernel_modules": true,
+        "collect_processes": true
+    },
+
+    "logging": {
+        "level": "INFO",
+        "log_directory": "logs",
+        "log_file": "akrdfas.log"
+    },
+
+    "reports": {
+        "directory": "reports"
+    },
+
+    "evidence": {
+        "directory": "evidence"
+    }
+}
