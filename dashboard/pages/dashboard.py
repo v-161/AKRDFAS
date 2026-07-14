@@ -1,4 +1,4 @@
-from dash import html, dcc  # Updated import
+from dash import html, dcc
 import dash_bootstrap_components as dbc
 from utils.loader import load
 from components.latest_findings import get_layout as latest_findings
@@ -6,6 +6,7 @@ from components.mitre_panel import get_layout as mitre_panel
 from components.threat_summary import get_layout as threat_summary
 from components.case_details_panel import get_layout as case_details_panel
 from components.charts import get_layout as charts_panel
+from components.ai_summary_panel import get_layout as ai_summary_panel
 
 
 def get_dashboard_data():
@@ -88,7 +89,7 @@ def get_layout():
     correlation = data["correlation"]
 
     # --------------------------
-    # Fix Kernel Hooks Count
+    # Kernel Hooks Count
     # --------------------------
     kernel_hooks = threat.get(
         "summary",
@@ -99,7 +100,7 @@ def get_layout():
     )
 
     # --------------------------
-    # Fix MITRE Count
+    # MITRE Count
     # --------------------------
     mitre_count = mitre.get(
         "summary",
@@ -110,7 +111,7 @@ def get_layout():
     )
 
     # --------------------------
-    # Fix Correlation Score
+    # Correlation Score
     # --------------------------
     correlation_score = threat.get(
         "summary",
@@ -370,6 +371,27 @@ def get_layout():
                     dbc.Col(
 
                         mitre_panel(),
+
+                        width=12
+
+                    )
+
+                ],
+
+                className="mt-4"
+
+            ),
+
+            # --------------------------
+            # AI INVESTIGATION ANALYSIS
+            # --------------------------
+            dbc.Row(
+
+                [
+
+                    dbc.Col(
+
+                        ai_summary_panel(),
 
                         width=12
 

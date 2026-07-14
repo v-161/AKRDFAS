@@ -138,7 +138,6 @@ tr:nth-child(even){
     color:white;
 }
 
-
 ul{
     margin-left:25px;
 }
@@ -153,4 +152,40 @@ li{
     color:#9E9E9E;
     border-top:1px solid #3C3C3C;
     padding-top:20px;
+}
+
+.ai-analysis{
+    background:#ffffff;
+    color:#222222;
+    padding:25px;
+    border-radius:8px;
+    line-height:1.7;
+    font-size:15px;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}
+
+.ai-analysis *{
+    color:#222222 !important;
+}
+
+.ai-analysis h1,
+.ai-analysis h2,
+.ai-analysis h3,
+.ai-analysis h4{
+    color:#111111 !important;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.ai-analysis p{
+    margin-bottom:14px;
+}
+
+.ai-analysis ul{
+    margin-left:25px;
+}
+
+.ai-analysis li{
+    margin-bottom:6px;
 }

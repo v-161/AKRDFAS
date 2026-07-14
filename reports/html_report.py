@@ -1,5 +1,5 @@
-import json
 import os
+import json
 from datetime import datetime
 
 
@@ -35,6 +35,22 @@ class HTMLReportGenerator:
 
         with open(path, "r") as f:
             return json.load(f)
+
+    def load_ai_analysis(self):
+
+        path = os.path.join(
+            self.case.get_case_directory(),
+            "evidence",
+            "ai_explanation.json"
+        )
+
+        if not os.path.exists(path):
+            return ""
+
+        with open(path, "r") as file:
+            data = json.load(file)
+
+        return data.get("analysis", "")
 
     def generate(self):
 
@@ -75,6 +91,8 @@ class HTMLReportGenerator:
         integrity_report = self.load("integrity_verification.json")
 
         timeline = self.load("timeline.json")
+
+        ai_analysis = self.load_ai_analysis()
 
         # -------------------------
         # Load CSS
@@ -961,6 +979,9 @@ class HTMLReportGenerator:
 
         level_class = level.lower()
 
+        # Format AI analysis with line breaks
+        formatted_ai = ai_analysis.replace("\n", "<br>")
+
         # -------------------------
         # Placeholder Values
         # -------------------------
@@ -1225,6 +1246,8 @@ class HTMLReportGenerator:
             "{{HIDDEN_PROCESSES_DETAILED}}": hidden_processes_detailed_html,
             "{{IOC_DETAILED}}": ioc_detailed_html,
             "{{KERNEL_HOOKS_DETAILED}}": hooks_detailed_html,
+            
+            "{{AI_ANALYSIS}}": formatted_ai,
         }
 
         # -------------------------
@@ -1661,7 +1684,8 @@ class HTMLReportGenerator:
             "ioc_matches.json": "Indicators of Compromise results",
             "integrity_verification.json": "Evidence integrity verification",
             "timeline.json": "Investigation timeline",
-            "threat_assessment.json": "Threat assessment results"
+            "threat_assessment.json": "Threat assessment results",
+            "ai_explanation.json": "AI investigation analysis"
         }
 
         for filename, description in descriptions.items():

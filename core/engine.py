@@ -19,6 +19,7 @@ from core.correlation_engine import CorrelationEngine
 from core.mitre_mapper import MitreMapper
 from core.timeline_logger import TimelineLogger
 from modules.ioc.ioc_detector import IOCDetector
+from core.ai_analyzer import AIAnalyzer
 
 class DetectionEngine:
 
@@ -220,6 +221,16 @@ class DetectionEngine:
         threat = ThreatCorrelationEngine(self.case)
         threat.run()
         timeline.add_event("Threat Assessment Completed")
+        timeline.save()
+
+        # ------------------------------------
+        # AI Investigation Analysis
+        # ------------------------------------
+        ai = AIAnalyzer(
+            self.case
+        )
+        ai.run()
+        timeline.add_event("AI Investigation Analysis Generated")
         timeline.save()
 
         # ------------------------------------
